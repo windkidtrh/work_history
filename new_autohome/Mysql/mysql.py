@@ -1,32 +1,29 @@
 #-*-coding:utf-8-*-
 import MySQLdb
 import socket
-#import time
-#TIMEFORMAT= "%Y-%m-%d %H:%M:%S"
-#import traceback
 
 
 HOSTNAME = socket.gethostname()
 PASSWD = ''
-if HOSTNAME=='iZ94zoeilgyZ':
+
+if HOSTNAME == 'iZ94zoeilgyZ':
     PASSWD = '4c1fadc64b' #4c1fadc64b
-elif HOSTNAME== 'iZ28quomnknZ':
+elif HOSTNAME == 'iZ28quomnknZ':
     PASSWD = 'aa123123'
-elif HOSTNAME== 'iZ8vb8il84z4pt60dloexiZ':
+elif HOSTNAME == 'iZ8vb8il84z4pt60dloexiZ':
     PASSWD = 'YJSshy2017'
 
-sql_socket ="/run/mysqld/mysqld.sock"   #"/tmp/mysql.sock"
+sql_socket = "/run/mysqld/mysqld.sock"   #"/tmp/mysql.sock"
 
 def connect_mysql():
     
     try:
-        conn=MySQLdb.connect(
-             host='localhost',
-             port=3306,
-             user='root',
-             passwd=PASSWD,
-             #db='study',
-             charset="utf8",
+        conn = MySQLdb.connect(
+             host = 'localhost',
+             port = 3306,
+             user = 'root',
+             passwd = PASSWD,
+             charset = "utf8",
              unix_socket = sql_socket
              )
         conn.select_db("cloudhome")
